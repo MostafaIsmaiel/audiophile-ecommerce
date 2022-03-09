@@ -44,6 +44,7 @@ function App() {
     <Router>
       <ThemeProvider theme={theme}>
         <NavBar />
+        <Notification />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:category" element={<CategoryPage />} />

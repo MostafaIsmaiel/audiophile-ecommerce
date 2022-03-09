@@ -19,6 +19,7 @@ import { toggleModal } from "../../store/CartModalSlice";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import ListItems from "../Home/Categories/ListItems";
 import CartModal from "./CartModal";
+import Overlay from "../Overlay";
 import useStyles from "./style";
 
 const pages = ["home", "headphones", "speakers", "earphones"];
@@ -191,17 +192,7 @@ const NavBar = () => {
         </Toolbar>
       </Container>
       <AnimatePresence>
-        {cartModal.openModal && (
-          <motion.div
-            key="overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.2 }}
-            exit={{ opacity: 0 }}
-            className={classes.overlay}
-            onClick={() => dispatch(toggleModal())}
-          ></motion.div>
-        )}
+        <Overlay dispatchFn={toggleModal} check={cartModal.openModal} />
       </AnimatePresence>
     </AppBar>
   );

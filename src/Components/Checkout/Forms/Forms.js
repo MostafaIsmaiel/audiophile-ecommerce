@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { Grid, FormLabel } from "@mui/material";
@@ -7,6 +8,7 @@ import CartSummary from "../CartSummary/CartSummary";
 import RadioWrapper from "../RadioWrapper/RadioWrapper";
 import Emoney from "../PaymentMethods/Emoney";
 import Cash from "../PaymentMethods/Cash";
+import { togglePurchasingModal } from "../../../store/CompeletePurchasingSlice";
 
 const INTIAL_FORM_STATE = {
   name: "",
@@ -22,6 +24,7 @@ const INTIAL_FORM_STATE = {
 
 const Forms = ({ classes }) => {
   const [selectedValue, setSelectedValue] = useState("e-money");
+  const dispatch = useDispatch();
 
   const requiredField =
     selectedValue === "e-money"
@@ -51,7 +54,7 @@ const Forms = ({ classes }) => {
       initialValues={{ ...INTIAL_FORM_STATE }}
       validationSchema={FORM_VALIDATION}
       onSubmit={(values) => {
-        console.log(values);
+        dispatch(togglePurchasingModal());
       }}
     >
       <Form>

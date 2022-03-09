@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
+import { addProduct } from "../../store/CartSlice";
+import { addNotification } from "../../store/NotificationSlice";
 import {
   Container,
   Typography,
@@ -13,7 +15,6 @@ import Categories from "../Home/Categories/Categories";
 import Producer from "../Producer/Producer";
 import BackBtn from "../BackBtn/BackBtn";
 import useStyles from "./styles";
-import { addProduct } from "../../store/CartSlice";
 
 const ProductPage = () => {
   const classes = useStyles();
@@ -138,7 +139,14 @@ const ProductPage = () => {
                     color="secondary"
                     variant="contained"
                     className={classes.addToCartBtn}
-                    onClick={() => dispatch(addProduct({ product, counter }))}
+                    onClick={() => {
+                      dispatch(addProduct({ product, counter }));
+                      dispatch(
+                        addNotification(
+                          `Item "${product.name}" was added to cart`
+                        )
+                      );
+                    }}
                   >
                     Add to Cart
                   </Button>

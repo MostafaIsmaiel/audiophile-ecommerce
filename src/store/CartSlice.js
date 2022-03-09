@@ -10,14 +10,10 @@ const CartSlice = createSlice({
     addProduct: (state, action) => {
       const product = action.payload.product;
       const counter = action.payload.counter;
-      if (state.length > 0) {
-        const modified = state.find((item) => item.id === product.id);
+      const modified = state.find((item) => item.id === product.id);
 
-        if (modified) {
-          modified.counter += counter;
-        } else {
-          state.push({ ...product, counter });
-        }
+      if (modified) {
+        modified.counter += counter;
       } else {
         state.push({ ...product, counter });
       }

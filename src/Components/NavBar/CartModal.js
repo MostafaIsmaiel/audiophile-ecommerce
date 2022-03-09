@@ -10,6 +10,7 @@ import {
 import { Typography, Grid, Button, List, ListItem } from "@mui/material";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import useStyles from "./style";
+import { addNotification } from "../../store/NotificationSlice";
 
 const CartModal = ({ toggleModal }) => {
   const classes = useStyles();
@@ -56,7 +57,10 @@ const CartModal = ({ toggleModal }) => {
               <Button
                 className={classes.removeAll}
                 color="secondary"
-                onClick={() => dispatch(removeAll())}
+                onClick={() => {
+                  dispatch(removeAll());
+                  dispatch(addNotification("Cart is empty"));
+                }}
               >
                 remove all
               </Button>
