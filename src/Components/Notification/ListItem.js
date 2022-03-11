@@ -14,7 +14,7 @@ const ListItems = ({ classes }) => {
       {notifications.map((notification) => {
         setTimeout(() => {
           dispatch(removeNotification(notification.id));
-        }, 4000);
+        }, 2000);
 
         return (
           <ListItem

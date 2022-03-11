@@ -38,44 +38,47 @@ const CartSummary = ({ totals }) => {
         <SummaryList cart={cart} classes={classes} />
       )}
 
-      <Price
-        name="total"
-        result={
-          total
-            ? new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-              }).format(total)
-            : "$ 0"
-        }
-        color="primary"
-      />
-      <Price name="shipping" result={`$${shipping}`} />
-      <Price
-        name="vat (included)"
-        result={
-          vat
-            ? new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-                minimumFractionDigits: 0,
-              }).format(vat)
-            : "$ 0"
-        }
-        color="primary"
-      />
-      <Price
-        name="grand total"
-        result={
-          grandTotal
-            ? new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-              }).format(grandTotal)
-            : "$ 0"
-        }
-        color="secondary"
-      />
+      <seciont className={classes.priceContainer}>
+        <Price
+          name="total"
+          result={
+            total
+              ? new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                }).format(total)
+              : "$ 0"
+          }
+          color="primary"
+        />
+        <Price name="shipping" result={`$${shipping}`} />
+        <Price
+          name="vat (included)"
+          result={
+            vat
+              ? new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                  minimumFractionDigits: 0,
+                }).format(vat)
+              : "$ 0"
+          }
+          color="primary"
+        />
+        <Price
+          name="grand total"
+          result={
+            grandTotal
+              ? new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                }).format(grandTotal)
+              : "$ 0"
+          }
+          color="secondary"
+        />
+      </seciont>
+
       <Button
         color="secondary"
         variant="contained"

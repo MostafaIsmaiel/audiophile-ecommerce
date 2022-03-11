@@ -5,7 +5,7 @@ const Price = ({ name, result, color }) => {
     <Grid
       container
       justifyContent="space-between"
-      margin={color === "secondary" ? "2rem 0" : "1rem 0"}
+      margin={color === "secondary" ? "2rem 0" : "0"}
     >
       <Grid item>
         <Typography

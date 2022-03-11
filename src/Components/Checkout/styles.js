@@ -71,6 +71,19 @@ const useStyles = makeStyles((theme) => {
         borderRadius: "10px",
       },
     },
+    summaryList: {
+      maxHeight: "10rem",
+      overflow: "auto",
+      "&::-webkit-scrollbar": {
+        width: "2px",
+      },
+    },
+    priceContainer: {
+      marginTop: "2rem",
+      display: "flex",
+      flexDirection: "column",
+      gap: "15px",
+    },
     compeletePurchasing: {
       position: "fixed",
       top: "50%",
@@ -81,14 +94,6 @@ const useStyles = makeStyles((theme) => {
       borderRadius: "10px",
       [theme.breakpoints.down("md")]: {
         width: "85%",
-      },
-    },
-    summaryList: {
-      maxHeight: "10rem",
-      overflow: "auto",
-      marginBottom: "3rem !important",
-      "&::-webkit-scrollbar": {
-        width: "2px",
       },
     },
   };
