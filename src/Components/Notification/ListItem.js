@@ -42,6 +42,7 @@ const ListItems = ({ classes }) => {
                   <CloseIcon
                     style={{
                       color: "white",
+                      fontSize: "1.2rem",
                     }}
                   />
                 </Button>

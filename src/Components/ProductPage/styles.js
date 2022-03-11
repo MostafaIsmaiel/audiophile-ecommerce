@@ -4,6 +4,9 @@ const useStyles = makeStyles((theme) => {
   return {
     product: {
       padding: "8rem 0",
+      [theme.breakpoints.down("md")]: {
+        padding: "4rem 0",
+      },
     },
     backBtn: {
       userSelect: "none",

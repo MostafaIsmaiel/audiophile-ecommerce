@@ -12,7 +12,7 @@ import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutl
 import useStyles from "./style";
 import { addNotification } from "../../store/NotificationSlice";
 
-const CartModal = ({ toggleModal }) => {
+const CartModal = ({ toggleModal, cartLength }) => {
   const classes = useStyles();
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -50,7 +50,7 @@ const CartModal = ({ toggleModal }) => {
                 fontSize="1.1rem"
                 letterSpacing={1.2}
               >
-                CART ({cart.length})
+                CART ({cartLength})
               </Typography>
             </Grid>
             <Grid item>

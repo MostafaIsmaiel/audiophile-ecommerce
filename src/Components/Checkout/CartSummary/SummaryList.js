@@ -23,7 +23,10 @@ const SummaryList = ({ cart }) => {
                   {shortName}
                 </Typography>
                 <Typography variant="body1" color="#00000080" fontSize={16}>
-                  {price * counter}
+                  {new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  }).format(price * counter)}
                 </Typography>
               </Grid>
             </Grid>

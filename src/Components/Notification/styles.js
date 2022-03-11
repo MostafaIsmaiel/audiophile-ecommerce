@@ -1,19 +1,30 @@
 import { makeStyles } from "@mui/styles";
 
-const useStyles = makeStyles(() => {
+const useStyles = makeStyles((theme) => {
   return {
     list: {
       display: "flex",
       flexDirection: "column",
       gap: "10px",
       position: "fixed !important",
-      top: "15px",
+      top: "80px",
       left: "10px",
       zIndex: "10",
+      transition: "all 0.3s",
+      [theme.breakpoints.down("sm")]: {
+        top: "50px",
+        width: "80%",
+        left: "50%",
+        transform: "translateX(-50%)",
+        alignItems: "center",
+      },
     },
     listItem: {
       borderRadius: "5px",
       backgroundColor: "#38a169",
+      width: "fit-content !important",
+      paddingTop: "0 !important",
+      paddingBottom: "0 !important",
     },
     button: {
       minWidth: "unset !important",

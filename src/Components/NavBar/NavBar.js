@@ -44,11 +44,12 @@ const listVariant = {
 
 const NavBar = () => {
   const classes = useStyles();
+  const [cartLength, setCartLength] = useState(0);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const cart = useSelector((state) => state.cart);
   const cartModal = useSelector((state) => state.cartModal);
   const dispatch = useDispatch();
-
+  console.log(cartLength);
   const location = useLocation();
 
   const handleOpenNavMenu = (event) => {
@@ -68,6 +69,19 @@ const NavBar = () => {
       body.style.overflowY = "visible";
     }
   });
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      const cartCountersArray = cart.map((product) => product.counter);
+      const cartCounterSum = cartCountersArray.reduce(
+        (prev, curr) => prev + curr
+      );
+
+      setCartLength(cartCounterSum);
+    } else {
+      setCartLength(0);
+    }
+  }, [cart]);
 
   return (
     <AppBar
@@ -177,7 +191,7 @@ const NavBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Cart">
               <Badge
-                badgeContent={cart.length}
+                badgeContent={cartLength}
                 color="secondary"
                 sx={{ cursor: "pointer" }}
                 onClick={() => dispatch(toggleModal())}
@@ -186,7 +200,9 @@ const NavBar = () => {
               </Badge>
             </Tooltip>
             <AnimatePresence>
-              {cartModal.openModal && <CartModal toggleModal={toggleModal} />}
+              {cartModal.openModal && (
+                <CartModal toggleModal={toggleModal} cartLength={cartLength} />
+              )}
             </AnimatePresence>
           </Box>
         </Toolbar>

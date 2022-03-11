@@ -22,7 +22,7 @@ const INTIAL_FORM_STATE = {
   emoneyPin: "",
 };
 
-const Forms = ({ classes }) => {
+const Forms = ({ classes, totals }) => {
   const [selectedValue, setSelectedValue] = useState("e-money");
   const dispatch = useDispatch();
 
@@ -148,7 +148,7 @@ const Forms = ({ classes }) => {
             </fieldset>
           </Grid>
           <Grid item xs={12} md={4} className={classes.formGrid}>
-            <CartSummary />
+            <CartSummary totals={totals} />
           </Grid>
         </Grid>
       </Form>

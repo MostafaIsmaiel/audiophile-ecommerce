@@ -4,25 +4,12 @@ import useStyles from "../styles";
 import Price from "./Price";
 import SummaryList from "./SummaryList";
 
-let total;
-let vat;
-export let grandTotal;
+// export let grandTotal;
 
-const CartSummary = () => {
+const CartSummary = ({ totals }) => {
   const classes = useStyles();
   const cart = useSelector((state) => state.cart);
-
-  const shipping = 50;
-
-  if (cart.length > 0) {
-    const totalArray = cart.map((item) => item.price * item.counter);
-
-    total = totalArray.reduce((prev, curr) => prev + curr);
-
-    vat = total / 5;
-
-    grandTotal = shipping + total + vat;
-  }
+  const { vat, grandTotal, total, shipping } = totals;
 
   return (
     <>

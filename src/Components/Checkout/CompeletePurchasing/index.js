@@ -3,12 +3,11 @@ import { Button, Typography, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SummaryList from "../CartSummary/SummaryList";
-import { grandTotal } from "../CartSummary/CartSummary";
 import { removeAll } from "../../../store/CartSlice";
 import { togglePurchasingModal } from "../../../store/CompeletePurchasingSlice";
 import useStyles from "../styles";
 
-const CompeletePurchasing = () => {
+const CompeletePurchasing = ({ grandTotal }) => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const classes = useStyles();

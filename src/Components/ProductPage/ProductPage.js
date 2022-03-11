@@ -45,7 +45,7 @@ const ProductPage = () => {
               alignItems="center"
               className={classes.productContainer}
               gap={{ md: "8rem", xs: "2rem" }}
-              flexDirection={{ sm: "row", xs: "column" }}
+              flexDirection={{ md: "row", xs: "column" }}
             >
               <Grid item xs={12} md={6} className={classes.productImage}>
                 <picture>
