@@ -96,6 +96,12 @@ const useStyles = makeStyles((theme) => {
         width: "85%",
       },
     },
+
+    checkmark: {
+      [theme.breakpoints.down("sm")]: {
+        width: "50px",
+      },
+    },
   };
 });
 

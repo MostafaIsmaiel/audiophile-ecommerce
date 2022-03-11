@@ -6,21 +6,12 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const containerVariant = {
-  hidden: { opacity: 1 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.4,
+      duration: 0.5,
     },
-  },
-};
-
-const listVariant = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
   },
 };
 
@@ -36,42 +27,40 @@ const ListItems = ({ anchorElNav, setAnchorElNav }) => {
       variants={containerVariant}
       initial="hidden"
       whileInView="visible"
+      transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      transition={{ duration: 3 }}
-      exit={{ opacity: 0, transition: 0.2 }}
+      exit={{ opacity: 0, transition: { duration: 0.3 } }}
     >
       {Array.from(categories).map((category) => (
-        <motion.div
-          variants={listVariant}
+        <ListItem
           className={classes.listItem}
           key={category}
+          onClick={() => anchorElNav && setAnchorElNav(null)}
         >
-          <ListItem onClick={() => anchorElNav && setAnchorElNav(null)}>
-            <Link to={`/${category}`} className={classes.link}>
-              <Paper elevation={0} className={classes.paper}>
-                <img
-                  src={`/images/shared/desktop/image-${category}.png`}
-                  alt={category}
-                  className={classes.categoryImg}
-                  draggable="false"
-                />
-                <Typography
-                  component="h2"
-                  variant="subtitle1"
-                  className={classes.typo}
-                >
-                  {category}
-                </Typography>
-                <Button
-                  className={classes.btn}
-                  endIcon={<KeyboardArrowRightIcon color="secondary" />}
-                >
-                  Shop
-                </Button>
-              </Paper>
-            </Link>
-          </ListItem>
-        </motion.div>
+          <Link to={`/${category}`} className={classes.link}>
+            <Paper elevation={0} className={classes.paper}>
+              <img
+                src={`/images/shared/desktop/image-${category}.png`}
+                alt={category}
+                className={classes.categoryImg}
+                draggable="false"
+              />
+              <Typography
+                component="h2"
+                variant="subtitle1"
+                className={classes.typo}
+              >
+                {category}
+              </Typography>
+              <Button
+                className={classes.btn}
+                endIcon={<KeyboardArrowRightIcon color="secondary" />}
+              >
+                Shop
+              </Button>
+            </Paper>
+          </Link>
+        </ListItem>
       ))}
     </List>
   );

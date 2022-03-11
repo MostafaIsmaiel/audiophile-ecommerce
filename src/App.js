@@ -1,7 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "./store/ProductSlice";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material";
 import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer/Footer";
@@ -10,6 +15,7 @@ import CategoryPage from "./Components/CategoryPage/CategoryPage";
 import ProductPage from "./Components/ProductPage/ProductPage";
 import Checkout from "./Components/Checkout/Checkout";
 import Notification from "./Components/Notification";
+import ErrorPage from "./Components/ErrorPage";
 
 const theme = createTheme({
   palette: {
@@ -48,8 +54,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:category" element={<CategoryPage />} />
-          <Route path="/product/:slug" element={<ProductPage />} />
+          <Route path="/:category/:slug" element={<ProductPage />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
       </ThemeProvider>

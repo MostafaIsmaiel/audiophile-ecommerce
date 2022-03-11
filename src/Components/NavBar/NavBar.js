@@ -25,7 +25,7 @@ import useStyles from "./style";
 const pages = ["home", "headphones", "speakers", "earphones"];
 
 const containerVariant = {
-  hidden: { opacity: 1 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {

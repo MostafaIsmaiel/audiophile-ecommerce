@@ -38,7 +38,7 @@ const CartSummary = ({ totals }) => {
         <SummaryList cart={cart} classes={classes} />
       )}
 
-      <seciont className={classes.priceContainer}>
+      <section className={classes.priceContainer}>
         <Price
           name="total"
           result={
@@ -77,7 +77,7 @@ const CartSummary = ({ totals }) => {
           }
           color="secondary"
         />
-      </seciont>
+      </section>
 
       <Button
         color="secondary"

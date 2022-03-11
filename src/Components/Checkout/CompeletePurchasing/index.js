@@ -27,7 +27,7 @@ const CompeletePurchasing = ({ grandTotal }) => {
     >
       <Grid
         container
-        gap="2rem"
+        gap={{ md: "2rem", xs: "1rem" }}
         maxWidth={{ md: "33rem" }}
         padding={{ md: "3rem", xs: "2rem" }}
       >
@@ -35,6 +35,7 @@ const CompeletePurchasing = ({ grandTotal }) => {
           <img
             src="/images/shared/desktop/icon-check-mark.svg"
             alt="check mark"
+            className={classes.checkmark}
           />
         </Grid>
 
@@ -42,7 +43,7 @@ const CompeletePurchasing = ({ grandTotal }) => {
           <Typography
             variant="h3"
             fontWeight="bold"
-            fontSize="2rem"
+            fontSize={{ md: "2rem", xs: "1.5rem" }}
             color="primary"
             textTransform="uppercase"
           >
@@ -54,7 +55,11 @@ const CompeletePurchasing = ({ grandTotal }) => {
         </Grid>
 
         <Grid item xs={12}>
-          <Typography variant="body1" color="#00000080" fontSize="15px">
+          <Typography
+            variant="body1"
+            color="#00000080"
+            fontSize={{ md: "15px", xs: "12px" }}
+          >
             You will receive an email confirmation shortly.
           </Typography>
         </Grid>
