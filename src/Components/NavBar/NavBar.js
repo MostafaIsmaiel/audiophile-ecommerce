@@ -43,13 +43,13 @@ const listVariant = {
 };
 
 const NavBar = () => {
+  const dispatch = useDispatch();
   const classes = useStyles();
   const [cartLength, setCartLength] = useState(0);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const cart = useSelector((state) => state.cart);
   const cartModal = useSelector((state) => state.cartModal);
-  const dispatch = useDispatch();
-  console.log(cartLength);
+
   const location = useLocation();
 
   const handleOpenNavMenu = (event) => {
@@ -125,7 +125,12 @@ const NavBar = () => {
             >
               <div className={classes.listContainer}>
                 <AnimatePresence initial={false}>
-                  {anchorElNav && <ListItems />}
+                  {anchorElNav && (
+                    <ListItems
+                      setAnchorElNav={setAnchorElNav}
+                      anchorElNav={anchorElNav}
+                    />
+                  )}
                 </AnimatePresence>
               </div>
             </Menu>

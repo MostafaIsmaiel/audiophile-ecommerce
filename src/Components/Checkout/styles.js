@@ -4,6 +4,9 @@ const useStyles = makeStyles((theme) => {
   return {
     checkout: {
       padding: "8rem 0",
+      [theme.breakpoints.down("md")]: {
+        padding: "4rem 0",
+      },
     },
     formGrid: {
       padding: "2rem 3rem 3rem",
@@ -54,7 +57,7 @@ const useStyles = makeStyles((theme) => {
       display: "flex",
       justifyContent: "space-between !important",
       gap: "1rem",
-      padding: "0.5rem 0 !important",
+      padding: "0.5rem 10px 0.5rem 0 !important",
     },
     productCartInfo: {
       display: "flex",
@@ -78,6 +81,14 @@ const useStyles = makeStyles((theme) => {
       borderRadius: "10px",
       [theme.breakpoints.down("md")]: {
         width: "85%",
+      },
+    },
+    summaryList: {
+      maxHeight: "10rem",
+      overflow: "auto",
+      marginBottom: "3rem !important",
+      "&::-webkit-scrollbar": {
+        width: "2px",
       },
     },
   };

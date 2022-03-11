@@ -5,7 +5,7 @@ const SummaryList = ({ cart }) => {
   const classes = useStyles();
 
   return (
-    <List>
+    <List className={classes.summaryList}>
       {cart.map((item) => {
         const { id, cartImage, shortName, price, counter } = item;
 
