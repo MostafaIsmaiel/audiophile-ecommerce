@@ -56,8 +56,6 @@ npm install && npm start
 - Redux Toolkit
 - Formik | Yup validation
 - Framer-Motion
-- React-Intersection-Observer
-- TypeScript
 - Atomic Design System
 
 ### What I learned
