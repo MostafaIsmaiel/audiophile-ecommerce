@@ -4,8 +4,6 @@ import useStyles from "../styles";
 import Price from "./Price";
 import SummaryList from "./SummaryList";
 
-// export let grandTotal;
-
 const CartSummary = ({ totals }) => {
   const classes = useStyles();
   const cart = useSelector((state) => state.cart);
