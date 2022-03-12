@@ -52,9 +52,11 @@ npm install && npm start
 ### Built with
 
 - React.js
-- MAterial UI
+- React-router-dom
+- Material UI
 - Redux Toolkit
-- Formik | Yup validation
+- Formik
+- Yup validation
 - Framer-Motion
 - Atomic Design System
 
