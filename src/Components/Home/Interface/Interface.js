@@ -58,7 +58,7 @@ const Interface = ({ products, isLoaded }) => {
                     quality made for the passionate music enthusiast.
                   </Typography>
                   <Link
-                    to={`/product/${products[3].slug}`}
+                    to={`/${products[3].category}/${products[3].slug}`}
                     style={{ textDecoration: "none" }}
                   >
                     <Button

@@ -51,7 +51,7 @@ const ProductsSampels = ({ products, isLoaded }) => {
               truly remarkable sound.
             </Typography>
             <Link
-              to={isLoaded && `/product/${products[5].slug}`}
+              to={isLoaded && `/${products[5].category}/${products[5].slug}`}
               style={{ textDecoration: "none" }}
             >
               <Button
@@ -78,7 +78,7 @@ const ProductsSampels = ({ products, isLoaded }) => {
             ZX7 SPEAKER
           </Typography>
           <Link
-            to={isLoaded && `/product/${products[4].slug}`}
+            to={isLoaded && `/${products[4].category}/${products[4].slug}`}
             style={{ textDecoration: "none" }}
           >
             <Button
@@ -133,7 +133,9 @@ const ProductsSampels = ({ products, isLoaded }) => {
                   YX1 EARPHONES
                 </Typography>
                 <Link
-                  to={isLoaded && `/product/${products[0].slug}`}
+                  to={
+                    isLoaded && `/${products[0].category}/${products[0].slug}`
+                  }
                   style={{ textDecoration: "none" }}
                 >
                   <Button

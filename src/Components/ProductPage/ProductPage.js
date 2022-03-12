@@ -16,6 +16,7 @@ import Producer from "../Producer/Producer";
 import BackBtn from "../BackBtn/BackBtn";
 import useStyles from "./styles";
 import ErrorPage from "../ErrorPage";
+import LoadingPage from "../LoadingPage";
 
 const ProductPage = () => {
   const classes = useStyles();
@@ -37,9 +38,9 @@ const ProductPage = () => {
     });
   }, [location.pathname]);
 
-  return (
-    <>
-      {isLoaded && product ? (
+  if (isLoaded) {
+    if (product) {
+      return (
         <>
           <section className={classes.product}>
             <Container>
@@ -309,11 +310,15 @@ const ProductPage = () => {
           <Categories />
           <Producer />
         </>
-      ) : (
-        <ErrorPage />
-      )}
-    </>
-  );
+      );
+    }
+
+    if (!product) {
+      return <ErrorPage />;
+    }
+  }
+
+  return <LoadingPage />;
 };
 
 export default ProductPage;
