@@ -14,12 +14,13 @@ const ListItems = ({ classes }) => {
       {notifications.map((notification) => {
         setTimeout(() => {
           dispatch(removeNotification(notification.id));
-        }, 2000);
+        }, 500);
 
         return (
           <ListItem
             key={notification.id}
             component={motion.li}
+            layout
             transition={{
               type: "spring",
               damping: 10,
