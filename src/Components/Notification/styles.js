@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => {
       top: "80px",
       left: "10px",
       zIndex: "10",
-      transition: "all 0.3s",
+      // transition: "all 0.3s",
       [theme.breakpoints.down("sm")]: {
         top: "50px",
         width: "80%",
@@ -23,8 +23,7 @@ const useStyles = makeStyles((theme) => {
       borderRadius: "5px",
       backgroundColor: "#38a169",
       width: "fit-content !important",
-      paddingTop: "0 !important",
-      paddingBottom: "0 !important",
+      paddingInline: "15px",
     },
     button: {
       minWidth: "unset !important",
